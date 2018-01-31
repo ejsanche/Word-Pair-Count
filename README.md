@@ -18,4 +18,6 @@ Make sure that the org.apache.hadoop-client jar is present.
 Export the project as a jar file.
 
 Run the jar file using the following command:
+```
 hadoop jar ProjectName.jar Class_name "hdfs input file path" "hdfs output folder path"
+```
