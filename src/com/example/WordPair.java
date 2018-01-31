@@ -42,7 +42,7 @@ public class WordPair {
         {
             String line = nopunct(value.toString());
             String temp=new String();
-            String temp2=new String();
+            String secondword=new String();
             String firstword=new String();
 
             StringTokenizer itr = new StringTokenizer(line);
