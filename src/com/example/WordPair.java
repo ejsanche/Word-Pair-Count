@@ -41,32 +41,30 @@ public class WordPair {
         public void map(LongWritable key, Text value, Context con) throws IOException, InterruptedException
         {
             String line = nopunct(value.toString());
-            String temp=new String();
             String secondword=new String();
             String firstword=new String();
 
             StringTokenizer itr = new StringTokenizer(line);
 
-//          Putting the first word in a temp String variable in order to concatenate it and form a pair with the next word.
+//          Initializing the firstword and the secondword.
             if (itr.hasMoreTokens()) {
-                temp = itr.nextToken();
-                firstword=temp3;
+                firstword = itr.nextToken();
                 secondword = firstword;
             }
             
-
-//          Here I have taken another word in a string variable (temp2) and concatenated it with temp.
-//          At the end of each line it will only take the last word as key.
+            
+//          At the start of each loop the secondword is put into the firstword and concatenated with it's subsequent word.
             while (itr.hasMoreTokens())
             {
-                firstword=secondword;
-                temp=itr.nextToken();
-                secondword=temp;
-                firstword=firstword+" "+secondword;
+                firstword = secondword;
+                secondword = itr.nextToken();;
+                firstword = firstword+" "+secondword;
 
                 Text outputKey = new Text(firstword.toLowerCase());
                 IntWritable outputValue = new IntWritable(1);
                 con.write(outputKey, outputValue);
+                
+//          At the end of each line it will only take the last word as key.
                 if (!itr.hasMoreTokens())
                 {
                     outputKey.set(secondword.toLowerCase());
