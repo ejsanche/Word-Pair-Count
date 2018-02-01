@@ -21,3 +21,4 @@ Run the jar file using the following command:
 ```
 hadoop jar ProjectName.jar Class_name "hdfs input file path" "hdfs output folder path"
 ```
+ 
